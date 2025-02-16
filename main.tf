@@ -6,19 +6,23 @@ resource "proxmox_vm_qemu" "ubuntu" {
 
   cores  = var.vm_cores
   memory = var.vm_memory
+  scsihw = "virtio-scsi-pci" # Ensure correct SCSI controller
+
   disk {
+    slot    = "scsi0"
     size    = var.vm_disk_size
-    type    = "scsi"
+    type    = "disk"
     storage = "local-lvm"
   }
 
   network {
+    id     = 0
     model  = "virtio"
     bridge = var.vm_network
   }
 
   os_type = "cloud-init"
-  sshkeys = "your-ssh-key-here"
+  sshkeys = var.ssh_key # Pass SSH key directly as a string
 
   lifecycle {
     ignore_changes = [network, sshkeys]

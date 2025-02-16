@@ -71,4 +71,22 @@ To destroy the created VMs:
 terraform destroy -auto-approve
 ```
 
+### Guide
+
+Pull Ubuntu 22.04 ISO
+
+`wget https://releases.ubuntu.com/jammy/ubuntu-22.04.5-live-server-amd64.iso`
+
+Create keypair
+
+`ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""`
+
+Reference the key terraform.tfvars you can find you key by running `cat ~/.ssh/id_rsa.pub`
+
+
+
+
+
+
+
 #### Author: Jared Wilson

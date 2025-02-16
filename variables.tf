@@ -33,10 +33,15 @@ variable "vm_cores" {
 
 variable "vm_disk_size" {
   type    = string
-  default = "10G"
+  default = "32G"
 }
 
 variable "vm_network" {
   type    = string
   default = "vmbr0"
+}
+
+variable "ssh_key" {
+  description = "SSH public key string for VM access"
+  type        = string
 }
