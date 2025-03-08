@@ -1,8 +1,8 @@
 resource "proxmox_vm_qemu" "ubuntu" {
   count       = var.vm_count
   name        = "${var.vm_name}-${count.index + 1}"
-  target_node = "proxmox"         # Change to your Proxmox node name
-  clone       = "ubuntu-template" # Change to your template name
+  target_node = "proxmox"              # Change to your Proxmox node name
+  clone       = "test-ubuntu-template" # Change to your template name
 
   cores  = var.vm_cores
   memory = var.vm_memory
